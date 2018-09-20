@@ -1,6 +1,6 @@
 #ifndef INNER_H
 # define INNER_H
 
-# include h.h
+# include mymatch.h
 
 #endif

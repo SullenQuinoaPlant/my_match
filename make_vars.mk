@@ -1,6 +1,6 @@
-NAME = myrbtree
+NAME = mymatch
 LIBNAME = lib$(NAME)
-GIT_REPO = https://github.com/SullenQuinoaPlant/.git
+GIT_REPO = https://github.com/SullenQuinoaPlant/my_match.git
 
 CALL_DIR := $(shell pwd)
 SRC_DIR := $(ROOT)/sources
@@ -20,7 +20,7 @@ SRCS = $(patsubst %,$(SRC_DIR)/%.c,$(TARGETS))
 OBJS = $(patsubst %,$(OBJ_DIR)/%.o,$(TARGETS))
 INCS = $(INC_DIR)/*.h
 
-DEPENDENCIES = libft
+DEPENDENCIES = libft libmyrbtree
 
 CC := gcc
 CFLAGS_MORE =
