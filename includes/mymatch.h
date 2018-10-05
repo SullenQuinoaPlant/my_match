@@ -28,13 +28,15 @@ typedef int	(*t_mtc_matcher)(
 	t_mtc_pattern	pattern_store,
 	void			**p_ret);
 
-typedef struct s_mtc_unit	t_s_mtc_unit;
+typedef struct s_mtc_unit	t_s_mtc_node;
 struct s_mtc_unit
 {
-	t_mtc_matcher	mtc;
-	t_mtc_adder		add;
-	t_mtc_remover	rem;
-	t_mtc_pattern	continue_pattern;
+	char const		*pattern;
+	t_s_mtc_node	*previous;
+	t_mtc_pattern	continue;
+	t_mtc_matcher	continue_mtc;
+	t_mtc_adder		continue_add;
+	t_mtc_remover	continue_rem;
 }
 
 # define MTC_SYS_ERR -1
