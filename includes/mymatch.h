@@ -28,11 +28,10 @@ typedef int	(*t_mtc_pattern_remover)(
 typedef int	(*t_mtc_pattern_matcher)(
 	char const		**matchee,
 	t_mtc_store		pattern_store,
-	t_memp			**p_ret)
+	t_memp			**state)
 
-/*
 typedef struct s_mtc_unit	t_s_mtc_node;
-struct s_mtc_unit
+struct						s_mtc_pattern_node
 {
 	char const		*node_pattern;
 	t_s_mtc_node	*previous;
@@ -41,6 +40,14 @@ struct s_mtc_unit
 	t_mtc_adder		continue_add;
 	t_mtc_remover	continue_rem;
 }
+
+/*
+**FUNCTIONS:
+*/
+int							mtc_match(
+	char const		*txt,
+	t_mtc_store		patterns,
+	void			**p_ret);
 
 # define MTC_SYS_ERR -1
 # define MTC_SUCCESS 0
