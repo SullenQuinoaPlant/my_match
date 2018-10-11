@@ -30,15 +30,21 @@ typedef int	(*t_mtc_pattern_matcher)(
 	t_mtc_store		pattern_store,
 	t_memp			**state)
 
+typedef int	(*t_mtc_action)(
+	char const		**matchee,
+	t_memp			**state);
+
 typedef struct s_mtc_unit	t_s_mtc_node;
 struct						s_mtc_pattern_node
 {
 	char const		*node_pattern;
 	t_s_mtc_node	*previous;
+	t_mtc_action	on_match;
 	t_mtc_store		continue;
 	t_mtc_matcher	continue_mtc;
 	t_mtc_adder		continue_add;
 	t_mtc_remover	continue_rem;
+	t_mtc_action	on_return;
 }
 
 /*
