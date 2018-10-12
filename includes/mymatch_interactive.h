@@ -75,7 +75,7 @@ typedef struct s_mtc_store	t_s_mtc_s;
 struct s_mtc_store
 {
 	t_mtc_init		init_match;
-	t_s_mtc_n		head;
+	t_s_mtc_n		*head;
 	t_mtc_teardown	end_match;
 }
 

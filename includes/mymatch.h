@@ -16,9 +16,10 @@
 typedef void	*t_mtc_store;
 
 int							mtc_match(
-	char const			*match,
-	t_mtc_store			against,
-	void				**p_ret);
+	char const			*matchee,
+	t_s_mtc_store		*against,
+	void				*state_init,
+	t_memp				**p_ret);
 
 # define MTC_SYS_ERR -1
 # define MTC_SUCCESS 0
