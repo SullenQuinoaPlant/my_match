@@ -8,6 +8,7 @@ int							run_node(
 {
 	int		r;
 
+	r = MTC_YAY;
 	if ((*n->is_match)(n->node_pattern, m, m_s) == MTC_YAY &&
 		(r = (*n->on_match)(m, m_s, ret)) == MTC_YAY &&
 		(n->continue && n->continue_mtc) &&
