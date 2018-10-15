@@ -1,4 +1,4 @@
-int							mtc_while_progress_raw_str(
+int							mtc_while_progress(
 	char const **matchee,
 	t_mtc_store pattern_store,
 	t_memp **state)

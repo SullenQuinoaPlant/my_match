@@ -17,18 +17,38 @@
 **(t_mtc_pattern)s are strings (null terminated).
 */
 typedef char const	*t_mtc_pattern;
+
+/*
+**Nodes can be held in various data structures.
+*/
 typedef void		*t_mtc_nodes;
+
+typedef int	(*t_mtc_test)(
+	t_mtc_pattern	node_pattern,
+	char const		**matchee,
+	void			*match_state);
+
+typedef int	(*t_mtc_action)(
+	char const		**matchee,
+	void			*match_state
+	t_memp			**ret);
+
+typedef int	(*t_mtc_node_matcher)(
+	char const		**matchee,
+	t_mtc_nodes		nodes,
+	void			*match_state,
+	t_memp			**ret);
 
 typedef struct s_mtc_node	t_s_mtc_n;
 struct						s_mtc_node
 {
 	t_mtc_pattern			node_pattern;
+	t_mtc_test				is_match;
 	t_mtc_action			on_match;
 	t_mtc_nodes				continue;
 	t_mtc_node_matcher		continue_mtc;
 	t_mtc_action			on_return;
 };
-
 typedef int	(*t_mtc_node_adder)(
 	t_s_mtc_n		*add,
 	t_mtc_nodes		to);
@@ -36,17 +56,6 @@ typedef int	(*t_mtc_node_adder)(
 typedef int	(*t_mtc_node_remover)(
 	t_mtc_pattern	remove,
 	t_mtc_nodes		from);
-
-typedef int	(*t_mtc_node_matcher)(
-	char const		**matchee,
-	t_mtc_nodes		nodes,
-	t_memp			*state,
-	t_memp			**ret);
-
-typedef int	(*t_mtc_action)(
-	char const		**matchee,
-	t_memp			*state
-	t_memp			**ret);
 
 typedef struct s_mtc_modifiable_node	t_s_mtc_mn;
 struct s_mtc_modifiable_node
@@ -57,6 +66,7 @@ struct s_mtc_modifiable_node
 		struct
 		{
 			t_mtc_pattern			node_pattern;
+			t_mtc_test				is_match;
 			t_mtc_action			on_match;
 			t_mtc_nodes				continue;
 			t_mtc_node_matcher		continue_mtc;

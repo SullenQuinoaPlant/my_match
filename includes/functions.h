@@ -14,8 +14,8 @@
 # define FUNCTIONS_H
 
 int							run_node(
-	t_s_mtc_n	*n,
-	t_memp		*state,
+	t_s_mtc_n	*node,
+	t_memp		*match_state,
 	t_memp		**ret);
 
 #endif
