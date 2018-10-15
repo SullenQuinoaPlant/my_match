@@ -2,21 +2,26 @@
 #include "mymatch.h"
 
 int							mtc_match(
-	char const *matchee,
-	t_s_mtc_store *against,
-	void *state_init,
-	t_memp **p_ret)
+	char const *match_this,
+	t_mtc_store *against,
+	t_memp m_s_init,
+	t_memp *p_ret)
 {
-	char const *const	in = matchee;
-	t_memp				parse_state;
+	char const *const	in = match_this;
+	t_s_mtc_s *const	store = (t_s_mtc_s*)against;
+	t_memp				m_s;
+	int					r;
 
-	
-	if ((*against->init_match)(state_init, &parse_state) == SUCCESS &&
-		(!against->node_pattern ||
-		!ft_strcmp(against->node_pattern, matchee)))
+	*p_ret = 0;
+	m_s = 0;
+	if ((*store->init_match)(m_s_init, &m_s) == MTC_YAY)
+		r = run_node(&in, store->head, m_s->p, p_ret);
+	if (m_s->p)
 	{
-		matchee += ft_strlen(against->node_pattern);
-		(*against->on_match)(matchee, 
+		if (store->end_match)
+			store->end_match(m_s);
+		else
+			ft_cleanfree(m_s->p, m_s->sz);
 	}
-	against->
+	return (r);
 }

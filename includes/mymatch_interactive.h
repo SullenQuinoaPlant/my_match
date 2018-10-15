@@ -31,13 +31,13 @@ typedef int	(*t_mtc_test)(
 typedef int	(*t_mtc_action)(
 	char const		**matchee,
 	void			*match_state
-	t_memp			**ret);
+	t_memp			*ret);
 
 typedef int	(*t_mtc_node_matcher)(
 	char const		**matchee,
 	t_mtc_nodes		nodes,
 	void			*match_state,
-	t_memp			**ret);
+	t_memp			*ret);
 
 typedef struct s_mtc_node	t_s_mtc_n;
 struct						s_mtc_node
