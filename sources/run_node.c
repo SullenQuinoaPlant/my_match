@@ -1,10 +1,10 @@
 #include "mymatch_interactive.h"
 
 int							run_node(
-	char const	**m,
-	t_s_mtc_n	*n,
-	void		*m_s,
-	t_memp		*ret)
+	char const **m,
+	t_s_mtc_n *n,
+	void *m_s,
+	t_memp *ret)
 {
 	int		r;
 
