@@ -30,7 +30,7 @@ struct						s_mtc_node
 };
 
 typedef int	(*t_mtc_node_adder)(
-	t_s_mtc_inode	*add,
+	t_s_mtc_n		*add,
 	t_mtc_nodes		to);
 
 typedef int	(*t_mtc_node_remover)(

@@ -17,7 +17,7 @@ typedef void	*t_mtc_store;
 
 int							mtc_match(
 	char const			*matchee,
-	t_s_mtc_store		*against,
+	t_mtc_store			*against,
 	void				*state_init,
 	t_memp				**p_ret);
 
